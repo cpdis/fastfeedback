@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Fast Feedback</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -17,12 +17,10 @@ const Home = () => {
 
         <p className="description">Get feedback...fast.</p>
 
-        <button onClick={(e) => auth.signinWithGithub()}>Sign In!</button>
-
-        <div>{auth?.user?.email}</div>
-
-        {auth?.user && (
+        {auth?.user ? (
           <button onClick={(e) => auth.signout()}>Sign Out!</button>
+        ) : (
+          <button onClick={(e) => auth.signinWithGitHub()}>Sign In!</button>
         )}
       </main>
 
